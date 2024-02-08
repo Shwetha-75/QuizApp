@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #button-container {
+      text-align: center;
+    }
+    .container {
+    width: 50%;
+    margin: 100px auto;
+    text-align: center;
+}
+
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    @keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    #admin-btn {
+      background-color: #f44336; /* Red */
+      color: white;
+    }
+    
+    #student-btn {
+      background-color: #f44336; /* Red */
+      color:white;
+      }
+  </style>
+</head>
+<body>
+  <div class="container" id="button-container">
+  <form  action="/map-studentpage" method="GET">
+    <button id="student-btn">Student</button></form>
+    <!-- Admin Login -->
+    <form  action="/map-adminlogin" method="GET">
+      <button id="admin-btn" type="submit">Admin</button>
+    </form>
+  </div>
+</body>
+</html>
