@@ -20,28 +20,28 @@ public class QuizController
 	@Autowired
 	QuizServices quizService;
 	
-	//@PostMapping("/createQuestion")
+	@PostMapping("/createQuestion")
 	public String addQuestions(@ModelAttribute Quiz quiz) 
 	{
 		String msg=quizService.addQuestions(quiz);
 		return msg;
 	}
 
-	//@PostMapping("/removeQuestion")
+	@PostMapping("/removeQuestion")
 	public String removeQuestion(@RequestParam int id) 
 	{
 		String msg=quizService.removeQuestion(id);
 		return msg;
 	}
 
-	//@PostMapping("/updateQuestion")
+	@PostMapping("/updateQuestion")
 	public String updateQuestion(@ModelAttribute Quiz quiz) 
 	{	
 		String msg=quizService.updateQuestion(quiz);
 		return msg;
 	}
 
-	//@GetMapping("/fetchAll")
+	@GetMapping("/fetchAll")
 	public String fetchAll(Model model) 
 	{
 		List<Quiz> list=quizService.fetchAll();
