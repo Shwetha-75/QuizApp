@@ -1,5 +1,5 @@
 package com.quiz.mvcproject.entities;
-
+-----------------------------------------------XXXXXXXXXX------ignore this file--------XXXXXXXXXXXXX--------------------------- 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
