@@ -8,4 +8,7 @@ public interface StudentService
 	
 	public String validateLogin(Student student);
 
+	
+	public Student getDetails(String email);
+
 }
