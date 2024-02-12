@@ -76,7 +76,11 @@ public class StudentServiceImplementation implements StudentService
 		}
 		
 	}
-	
+	@Override
+	public Student getDetails(String email)
+	{
+		return studentRepo.findByEmail(email);
+	}
 	
 
 }
