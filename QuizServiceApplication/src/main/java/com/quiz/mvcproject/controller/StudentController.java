@@ -13,7 +13,7 @@ public class StudentController
 {
 	@Autowired
 	StudentService studentService;
-	
+	Student detail;
 	
 	
 	@PostMapping("/studentregister")
@@ -27,6 +27,17 @@ public class StudentController
 	public String validateLogin(Student student)
 	{
 		String msg=studentService.validateLogin(student);
+		if(msg.equals("studenthome"))
+		{
+			detail=studentService.getDetails(student.getEmai());
+		}
 		return msg;
 	}
+	@GetMapping("/profile")
+	public String profile(Model model)
+	{
+		model.addAttribute("detail",detail);
+		return "studentprofile";
+	}
+	
 }
