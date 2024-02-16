@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>STUDENT PROFILE</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 100px;
+        }
+
+        .profile-card {
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-card h2 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .profile-card p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-button 
+        
+        { 
+           display: flex;
+           
+        }
+        .profile-card .label {
+            font-weight: bold;
+            color: #666;
+            margin-right: 10px;
+        }
+
+        .profile-card .data {
+            flex-grow: 1;
+        }
+        #logout[type="submit"] 
+        {
+            padding: 10px 20px;
+            background-color:red;
+             
+            color: white;
+            border:medium;
+            height:40px;
+            width: 90px;
+            
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+         #edit[type="submit"] 
+        {
+            padding: 10px 20px;
+            background-color:blue;
+            color: white;
+            height:40px;
+            width: 90px;
+             
+            border:medium;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #home[type="submit"]
+        {
+             background-color: green;
+             color: white;
+             
+             height:40px;
+             width: 90px;
+             
+             border:medium;
+             border-radius: 5px;
+             cursor: pointer;
+        }
+        .div-button 
+        {
+        
+           display: flex;
+           justify-content: space-between;
+        }
+        
+        
+    </style>
+</head>
+<body>
+	<div class="profile-card" th:each="detail : ${detail}">
+	<h2>Student Profile </h2>
+	<p>
+	<span class="label">First Name:</span>
+	<span class="data" th:text="${detail.fname}"></span>
+	</p>
+	<p>
+	<span class="label">Last Name:</span>
+	<span class="data" th:text="${detail.lname}"></span>
+	</p>
+	<p>
+	<span class="label">Email:</span>
+	<span class="data" th:text="${detail.email}"></span>
+	</p>
+	<p>
+	<span class="label">Gender:</span>
+	<span class="data" th:text="${detail.gender}"></span>
+	</p><br>
+	<div class="div-button">
+	<form class="form-button" action="/map-studentlogin" method="GET">
+	    <button id="logout" type="submit">LOGOUT</button>
+	</form><br>
+	<form class="form-button" action="/editstudentprofile" method="POST">
+	    <button id ="edit" type="submit">EDIT</button>
+	</form><br>
+	<form class="form-button" action="/map-studenthome"  method="GET">
+        <button  id="home" type="submit" >HOME</button>
+    </form>
+	</div>
+	</div>
+	    
+
+</body>
+</html>
