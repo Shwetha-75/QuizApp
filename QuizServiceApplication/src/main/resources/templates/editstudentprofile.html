@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Edit Student</title>
+</head>
+<style>
+.div-edit {
+	display: flex;
+	margin-top: 3%;
+	margin-right: 2%;
+}
+
+.text1 {
+	margin-right: 2%;
+}
+
+body {
+	font-family: 'Arial', sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f4f4f4;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 20px;
+	
+	overflow: hidden;
+	background-color: #333;
+}
+
+nav li {
+	float: left;
+	
+}
+
+
+nav li a, .form-button button {
+	display: block;
+	
+	text-align: center;
+	
+	text-decoration: none;
+}
+
+nav li a:hover, .form-button button {
+	background-color: red;
+	
+	color: black;
+	
+	padding:30%;
+}
+
+.div-edit {
+	display: flex;
+	margin-top: 3%;
+	margin-right: 2%;
+}
+
+.text1 {
+	margin-right: 2%;
+}
+
+.form-text {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	width: 600px;
+	margin: 0 auto;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+input[type="text"] {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 15px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+input[type="submit"] {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.logout
+{
+
+  background-color: red;
+}
+
+.div-tag1 
+{
+
+   margin:3%;
+   
+}
+
+
+input[type="submit"]:hover 
+{
+	background-color: #45a049;
+}
+
+
+</style>
+<body class="body-tag">
+	<div class="div-tag1">
+		<nav class="nav-bar">
+			<ul>
+				<li>
+					<form action="/map-studenthome" method="GET">
+						<input type="submit" value="HOME" />
+					</form>
+				</li>
+				<li>
+					<form class="form-button" action="/map-studentlogin" method="GET">
+						<input class="logout" type="submit" value="LOGOUT" />
+					</form>
+				</li>
+
+			</ul>
+		</nav>
+	</div>
+
+   <div class="div-tag2">
+	<form class="form-text" action="/editprofile" th:object="${detail}" method="POST">
+		<div class="div-edit">
+			<h1 class="text1">EDIT YOUR PROFILE</h1>
+			<h1 class="text" th:text=${detail.fname}></h1>
+		</div>
+		<label>FIRST NAME: </label><input type="text" th:field="*{fname}"
+			th:value="*{fname}" name="fname" /><br> <label>LAST
+			NAME: </label><input type="text" th:field="*{lname}" th:value="*{lname}"
+			name="lname" /><br> <label>GENDER: </label><input type="text"
+			th:field="*{gender}" th:value="*{gender}" name="gender" /><br>
+
+		<input type="submit" value="UPDATE" />
+
+
+	</form></div>
+	
+	<!-- Issue encountered for testing purpose this form can be used to enter the data manually -->
+	<!--  -->
+	<!--  <form action="/editprofile" method="POST">
+  <label>FIRST NAME: </label><input type="text" name="fname" />
+  <label>LAST NAME: </label><input type="text" name="lname" />
+  <label>EMAIL: </label><input type="email" name="email" />
+  <input type="submit" value="SUBMIT"/>
+</form>-->
+</body>
+</html>
