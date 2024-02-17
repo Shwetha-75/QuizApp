@@ -15,7 +15,12 @@ public class StudentController
 	StudentService studentService;
 	Student detail;
 	
-	
+	@GetMapping("/studenthome")
+	public String studentHome(Model model)
+	{
+		model.addAttribute("detail", detail);
+		return "studenthome";
+	}
 	@PostMapping("/studentregister")
 	public String validateRegister(@ModelAttribute Student student)
 	{
