@@ -52,5 +52,11 @@ public class StudentController
 		model.addAttribute("detail",detail);
 		return "editstudentprofile";
 	}
+	@PostMapping("/editprofile")
+	public String updatestudent(@ModelAttribute Student student) {
+		//System.out.println(student);
+		detail=studentService.updateStudent(student);
+		return "updatestudentsuccess";
+	}
 	
 }
