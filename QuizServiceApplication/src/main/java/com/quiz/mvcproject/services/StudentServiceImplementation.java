@@ -81,6 +81,23 @@ public class StudentServiceImplementation implements StudentService
 	{
 		return studentRepo.findByEmail(email);
 	}
+	@Override
+	public Student updateStudent(Student student) 
+	{
+		
+		//to perform updation first we have to get the values 
+		//from the database and set the values and update it
+		
+		Student stud=studentRepo.findByEmail(student.getEmail());
+		stud.setId(student.getId());
+		stud.setEmail(student.getEmail());
+		stud.setFname(student.getFname());
+		stud.setLname(student.getLname());
+		stud.setGender(student.getGender());
+		
+		studentRepo.save(stud);
+		return stud;
+	}
 	
 
 }
