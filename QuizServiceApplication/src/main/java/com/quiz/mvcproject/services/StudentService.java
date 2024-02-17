@@ -10,5 +10,6 @@ public interface StudentService
 
 	
 	public Student getDetails(String email);
+	public Student updateStudent(Student student);
 
 }
