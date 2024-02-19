@@ -51,7 +51,15 @@ public class QuestionJavaController
 		model.addAttribute("quizQuestions",list);
 		return "viewAll";
 	}
-	
+	@GetMapping("/map-javpaper")
+	public String javPaper(Model model)
+	{
+		List<Questionjava> list=javService.fetchAll();
+		model.addAttribute("list", list);
+		
+		return "javquestionpaper";
+		
+	}
 
 
 }
