@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="" method="POST">
+	     <p th:text="${data}"></p>
+		<select>
+		<option  th:each="q :${list}" th:text="${q.id}"></option>
+		</select>
+	</form>
+</body>
+</html>
