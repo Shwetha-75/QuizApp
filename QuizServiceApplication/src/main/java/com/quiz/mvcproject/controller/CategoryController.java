@@ -10,6 +10,8 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller
 public class CategoryController 
 {
+	@Autowired
+	JavaQuestionService javService;
 	@PostMapping("/createcategory")
 	public String create(@RequestParam String sub, Model model)
 	{
