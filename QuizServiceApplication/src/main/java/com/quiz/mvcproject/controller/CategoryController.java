@@ -33,7 +33,10 @@ public class CategoryController
 	{
 		if(sub.equals("jav"))
 		{
-			return "javupdateQuestion";
+			List<Questionjava> list=javService.fetchAll();
+			model.addAttribute("data",data);
+			model.addAttribute("list",list);
+			return "listjavaid";
 		}
 		else if(sub.equals("pyt"))
 		{
