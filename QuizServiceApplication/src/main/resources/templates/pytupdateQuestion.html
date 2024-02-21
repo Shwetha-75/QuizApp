@@ -87,10 +87,10 @@
 <form action="/pytupdateQuestion"  th:object="${pyt}"method="post">
     
     <label>Enter the question: <input type="text" th:value="*{question}"  th:field="*{question}"name="question"/></label><br><br>
-    <label>Enter the option1: <input type="text" name="option1"/></label><br><br>
-    <label>Enter the option2: <input type="text" name="option2"/></label><br><br>
-    <label>Enter the option3: <input type="text" name="option3"/></label><br><br>
-    <label>Enter the option4: <input type="text" name="option4"/></label><br><br>
+    <label>Enter the option1: <input type="text" th:field="*{option1}"  th:value="*{option1}" name="option1"/></label><br><br>
+    <label>Enter the option2: <input type="text"th:field="*{option2}"  th:value="*{option2}" name="option2"/></label><br><br>
+    <label>Enter the option3: <input type="text"th:field="*{option3}"  th:value="*{option3}" name="option3"/></label><br><br>
+    <label>Enter the option4: <input type="text" th:field="*{option4}"  th:value="*{option4}"name="option4"/></label><br><br>
     <label>Enter the correct option: <input type="text" name="correctOption"/></label><br><br>
     <input type="submit" value="SUBMIT"/>
 </form>
