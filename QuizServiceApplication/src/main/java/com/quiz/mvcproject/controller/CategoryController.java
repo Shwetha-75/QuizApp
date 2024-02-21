@@ -12,6 +12,10 @@ public class CategoryController
 {
 	@Autowired
 	JavaQuestionService javService;
+	@Autowired
+	PythonQuestionService pytService;
+	@Autowired
+	
 	@PostMapping("/createcategory")
 	public String create(@RequestParam String sub, Model model)
 	{
