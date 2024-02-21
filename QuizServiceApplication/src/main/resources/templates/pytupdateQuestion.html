@@ -85,7 +85,7 @@
   </nav>
 </div>
 <form action="/pytupdateQuestion"  th:object="${pyt}"method="post">
-    
+    <label>Question id:</label><input type="number"  th:value="*{id}" th:field="*{id}" name="id" readonly/>
     <label>Enter the question: <input type="text" th:value="*{question}"  th:field="*{question}"name="question"/></label><br><br>
     <label>Enter the option1: <input type="text" th:field="*{option1}"  th:value="*{option1}" name="option1"/></label><br><br>
     <label>Enter the option2: <input type="text"th:field="*{option2}"  th:value="*{option2}" name="option2"/></label><br><br>
