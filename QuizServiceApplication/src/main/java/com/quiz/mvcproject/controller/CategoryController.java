@@ -25,6 +25,7 @@ public class CategoryController
 		}
 		else if(sub.equals("pyt"))
 		{
+			
 			return "pytcreateQuestion";
 		}
 		else
@@ -37,6 +38,7 @@ public class CategoryController
 	{
 		if(sub.equals("jav"))
 		{
+			String data="JAVA";
 			List<Questionjava> list=javService.fetchAll();
 			model.addAttribute("data",data);
 			model.addAttribute("list",list);
@@ -44,12 +46,20 @@ public class CategoryController
 		}
 		else if(sub.equals("pyt"))
 		{ 
+			String data="PYTHON";
+			List<Questionpython> list=pytService.fetchAll();
+			model.addAttribute("data",data);
+			model.addAttribute("list",list);
 			
-			return "pytupdateQuestion";
+			return "listpythonid";
 		}
 		else
 		{
-			return "squpdateQuestion";
+			String data="SQL";
+			List<Questionsql> list=sqlService.fetchAll();
+			model.addAttribute("data",data);
+			model.addAttribute("list",list);
+			return "listsqlid";
 		}
 	}
 	@PostMapping("/removecategory")
