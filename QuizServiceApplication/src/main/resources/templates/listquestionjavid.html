@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    /* Define CSS styles */
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+
+    form {
+        margin: 20px;
+    }
+
+    select {
+        width: 200px;
+        padding: 5px;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+	<form action="" method="POST">
+	     <p th:text="${data}"></p>
+		<select>
+		<option  th:each="q :${list}" th:text="${q.id}"></option>
+		</select>
+	</form>
+</body>
+</html>
