@@ -15,7 +15,7 @@ public class CategoryController
 	@Autowired
 	PythonQuestionService pytService;
 	@Autowired
-	
+	SQLQuestionService sqlService;
 	@PostMapping("/createcategory")
 	public String create(@RequestParam String sub, Model model)
 	{
@@ -43,7 +43,8 @@ public class CategoryController
 			return "listjavaid";
 		}
 		else if(sub.equals("pyt"))
-		{
+		{ 
+			
 			return "pytupdateQuestion";
 		}
 		else
