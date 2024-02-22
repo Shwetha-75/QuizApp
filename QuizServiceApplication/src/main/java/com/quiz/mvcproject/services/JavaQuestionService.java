@@ -14,5 +14,6 @@ public String addQuestions(Questionjava jav);
 	public String updateQuestion(Questionjava jav);
 	
 	public List<Questionjava> fetchAll();
-
+    
+	public Questionjava findByIdObject(int id);
 }
