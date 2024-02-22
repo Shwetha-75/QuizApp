@@ -15,4 +15,6 @@ public String addQuestions(Questionpython python);
 	
 	public List<Questionpython> fetchAll();
 
+	public Questionpython findByObject(int id);
+
 }
