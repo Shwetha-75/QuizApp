@@ -28,17 +28,35 @@ public class JavaQuestionServiceImplementation implements JavaQuestionService
 	}
 
 	@Override
-	public String updateQuestion(Questionjava jav) {
-		javRepo.save(jav);
+	public String updateQuestion(Questionjava jav) 
+	{
+		Questionjava javObject=javRepo.findById(jav.getId());
+		javObject.setQuestion(jav.getQuestion());
+		javObject.setOption1(jav.getOption1());
+		javObject.setOption2(jav.getOption2());
+		javObject.setOption3(jav.getOption3());
+		javObject.setOption4(jav.getOption4());
+		javObject.setCorrectOption(jav.getCorrectOption());
+		
+		javRepo.save(javObject);
 		return "updatedSuccessfully";
 	}
 
 	@Override
 	public List<Questionjava> fetchAll() 
 	{
+		
 		List<Questionjava> list=javRepo.findAll();
 		System.out.println("Hello");
 		return list;
+	}
+
+	@Override
+	public Questionjava findByIdObject(int id) 
+	{
+		
+		
+		return javRepo.findById(id);
 	}
 
 }
