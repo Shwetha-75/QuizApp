@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Listing Java Question Id's</title>
 <style>
     /* Define CSS styles */
     body {
@@ -22,11 +22,14 @@
 </style>
 </head>
 <body>
-	<form action="" method="POST">
+	<form action="/map-updatejavaid" method="POST">
 	     <p th:text="${data}"></p>
 		<select>
 		<option  th:each="q :${list}" th:text="${q.id}"></option>
 		</select>
+		<h3>Enter the id from the list:</h3>
+		<input type="number" name="id"/>
+		<button type="submit">SUBMIT</button>
 	</form>
 </body>
 </html>
