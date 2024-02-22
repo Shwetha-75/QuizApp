@@ -4,6 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.quiz.mvcproject.entities.Questionsql;
 
-public interface SQLQuestionRepository extends JpaRepository<Questionsql, Integer>{
+public interface SQLQuestionRepository extends JpaRepository<Questionsql, Integer>
+{
+  public Questionsql findById(int id);
 
 }
