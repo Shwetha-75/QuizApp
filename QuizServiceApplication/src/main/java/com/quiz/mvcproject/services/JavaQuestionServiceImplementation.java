@@ -14,6 +14,17 @@ public class JavaQuestionServiceImplementation implements JavaQuestionService
 {
 	@Autowired
 	JavaQuestionRepository javRepo;
+	
+
+	//returning the list of ids
+	public List<Integer> getIdList() {
+
+		return javRepo.findByIdsAll();
+	}
+
+
+	
+
 
 	@Override
 	public String addQuestions(Questionjava jav) {
@@ -50,10 +61,12 @@ public class JavaQuestionServiceImplementation implements JavaQuestionService
 		System.out.println("Hello");
 		return list;
 	}
-
+    
 	@Override
 	public Questionjava findByIdObject(int id) 
 	{
+		
+		
 		
 		
 		return javRepo.findById(id);
