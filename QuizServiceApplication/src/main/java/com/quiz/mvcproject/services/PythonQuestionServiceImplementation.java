@@ -28,6 +28,19 @@ public class PythonQuestionServiceImplementation implements PythonQuestionServic
 
 	@Override
 	public String updateQuestion(Questionpython pyt) {
+		//for updation 
+		//step 1--> get the previous data
+		//step 2-->set the data
+		//update it or save 
+        
+		Questionpython quespyt=pytRepo.findById(pyt.getId());
+		quespyt.setQuestion(pyt.getQuestion());
+		quespyt.setOption1(pyt.getOption1());
+		quespyt.setOption2(pyt.getOption2());
+                quespyt.setOption3(pyt.getOption3());
+                quespyt.setOption4(pyt.getOption4());
+                quespyt.setCorrectOption(pyt.getCorrectOption());
+		pytRepo.save(quespyt);
 		pytRepo.save(pyt);
 		return "updatedSuccessfully";
 	}
