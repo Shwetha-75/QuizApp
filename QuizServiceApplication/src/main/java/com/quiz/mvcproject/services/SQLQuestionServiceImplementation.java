@@ -31,6 +31,15 @@ public class SQLQuestionServiceImplementation implements SQLQuestionService
 
 	@Override
 	public String updateQuestion(Questionsql sq) {
+		Questionsql sqlObject=sqlRepo.findById(sq.getId());
+		sqlObject.setId(sq.getId());
+		sqlObject.setQuestion(sq.getQuestion());
+		sqlObject.setOption1(sq.getOption1());
+		sqlObject.setOption2(sq.getOption2());
+		sqlObject.setOption3(sq.getOption3());
+		sqlObject.setOption4(sq.getOption4());
+		sqlObject.setCorrectOption(sq.getCorrectOption());
+		
 		sqlRepo.save(sq);
 		return "updatedSuccessfully";
 	}
