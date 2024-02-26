@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+
+ .question
+ 
+ {
+    display:none;
+ 
+ }
+ 
+ .question.active
+ 
+ {
+  display:block;
+ 
+ 
+ }
+</style>
+</head>
+<body>
+
+	<div class="question" action="" th:each="question,iterateStat:${list}"  th:id="'question-'+ ${iterateStat.index+1}">
+		<!--  <h4 th:text=${iterateStat.index}>Indexing</h4>-->
+		<h3 th:text=${question.question}></h3>
+		<input type="radio" name="option" /><label th:text=${question.option1}></label><br>
+		<input type="radio" name="option" /><label th:text=${question.option2}></label><br>
+		<input type="radio" name="option" /><label th:text=${question.option3}></label><br>
+		<input type="radio" name="option" /><label th:text=${question.option4}></label><br>
+		<button th:if="${iterateStat.index>0}" onclick="prevQuestion()">Previous</button>
+		<button th:if="${iterateStat.index<list.size()-1}"onclick="nextQuestion()">Next</button>
+
+		<button type="submit">SUBMIT</button>
+	</div>
+
+	<script>
+            var count=0;
+            const total=document.querySelectorAll('.question').length;
+            
+            function nextQuestion()
+            {
+            	if(count<total-1)
+            	{
+            		document.getElementById('question'+(count+1)).classList.remove('active');
+            		count++;
+            		document.getElementById('question-'+(count+1)).classList.add('active');
+                }
+            }
+            
+            function prevQuestion()
+            {
+            	if(count>0)
+            		{
+            		     document.getElementById('question-'+(count+1)).classList.remove('active');
+            		     count--;
+            		     document.getElementById('question-'+(count+1)).classList.add('active');
+            		
+            		}
+            }
+     </script>
+
+</body>
+</html>
