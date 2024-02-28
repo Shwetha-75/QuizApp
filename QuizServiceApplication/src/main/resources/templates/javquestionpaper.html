@@ -10,25 +10,40 @@
 </head>
 <body>
 
-	<div class="question" action="" th:with="data=data">
+	<form class="question" action="" th:with="data=data">
 		<!--  <h4 th:text=${iterateStat.index}>Indexing</h4>-->
+
+	<div id="container">
 		<h3 th:text=${data[index].question}></h3>
 		<input type="radio" name="option" /><label th:text=${data[index].option1}></label><br>
 		<input type="radio" name="option" /><label th:text=${data[index].option2}></label><br>
 		<input type="radio" name="option" /><label th:text=${data[index].option3}></label><br>
 		<input type="radio" name="option" /><label th:text=${data[index].option4}></label><br>
+	</div>	
 		<button id="prevbtn" onclick="prev()">Previous</button>
 		<button  id="nextbtn" onclick="next()">Next</button>
 
 		<button type="submit">SUBMIT</button>
-	</div>
+	
+	</form>
 
 	<script th:line="javascript">
             var count=0;
 	    var data=`[[${list}]]`;
 	   //testing 
 	    console.log(data);
-            const total=document.querySelectorAll('.question').length;
+
+	    function update()
+		    {
+			    var getContainer=document.getElemntById("container");
+			    getContainer.innerHTML=
+				    '<p>Question: <span>'+data[index].question+'</span></p>'+
+				     '<p><span>'+data[index].option1+'</span></p>'+
+				     '<p><span>'+data[index].option2+'</span></p>'+
+				     '<p><span>'+data[index].option3+'</span></p>'+
+				     '<p><span>'+data[index].option4+'</span></p>';
+				    
+		    }
             
             function next()
             {
