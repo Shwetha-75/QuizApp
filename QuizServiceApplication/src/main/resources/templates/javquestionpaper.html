@@ -25,15 +25,16 @@
 
 	<script>
             var count=0;
+	    var data=`[[${list}]]`;
+	   //testing 
+	    console.log(data);
             const total=document.querySelectorAll('.question').length;
             
             function next()
             {
             	if(count<total-1)
             	{
-            		document.getElementById('question'+(count+1)).classList.remove('active');
-            		count++;
-            		document.getElementById('question-'+(count+1)).classList.add('active');
+            		
                 }
             }
             
