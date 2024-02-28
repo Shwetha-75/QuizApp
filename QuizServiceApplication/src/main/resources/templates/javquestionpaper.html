@@ -23,7 +23,7 @@
 		<button type="submit">SUBMIT</button>
 	</div>
 
-	<script>
+	<script th:line="javascript">
             var count=0;
 	    var data=`[[${list}]]`;
 	   //testing 
@@ -32,7 +32,7 @@
             
             function next()
             {
-            	if(count<total-1)
+            	if()
             	{
             		
                 }
@@ -40,13 +40,7 @@
             
             function prev()
             {
-            	if(count>0)
-            		{
-            		     document.getElementById('question-'+(count+1)).classList.remove('active');
-            		     count--;
-            		     document.getElementById('question-'+(count+1)).classList.add('active');
-            		
-            		}
+            	
             }
      </script>
 
