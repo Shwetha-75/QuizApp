@@ -10,13 +10,13 @@
 </head>
 <body>
 
-	<div class="question" action="" th:each="question,iterateStat:${list}">
+	<div class="question" action="" th:with="data=data">
 		<!--  <h4 th:text=${iterateStat.index}>Indexing</h4>-->
-		<h3 th:text=${question.question}></h3>
-		<input type="radio" name="option" /><label th:text=${question.option1}></label><br>
-		<input type="radio" name="option" /><label th:text=${question.option2}></label><br>
-		<input type="radio" name="option" /><label th:text=${question.option3}></label><br>
-		<input type="radio" name="option" /><label th:text=${question.option4}></label><br>
+		<h3 th:text=${data[index].question}></h3>
+		<input type="radio" name="option" /><label th:text=${data[index].option1}></label><br>
+		<input type="radio" name="option" /><label th:text=${data[index].option2}></label><br>
+		<input type="radio" name="option" /><label th:text=${data[index].option3}></label><br>
+		<input type="radio" name="option" /><label th:text=${data[index].option4}></label><br>
 		<button id="prevbtn" onclick="prev()">Previous</button>
 		<button  id="nextbtn" onclick="next()">Next</button>
 
