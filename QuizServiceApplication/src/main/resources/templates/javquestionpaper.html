@@ -10,15 +10,15 @@
 </head>
 <body>
 
-	<div class="question" action="" th:each="question,iterateStat:${list}"  th:id="'question-'+ ${iterateStat.index+1}">
+	<div class="question" action="" th:each="question,iterateStat:${list}">
 		<!--  <h4 th:text=${iterateStat.index}>Indexing</h4>-->
 		<h3 th:text=${question.question}></h3>
 		<input type="radio" name="option" /><label th:text=${question.option1}></label><br>
 		<input type="radio" name="option" /><label th:text=${question.option2}></label><br>
 		<input type="radio" name="option" /><label th:text=${question.option3}></label><br>
 		<input type="radio" name="option" /><label th:text=${question.option4}></label><br>
-		<button th:if="${iterateStat.index>0}" onclick="prevQuestion()">Previous</button>
-		<button th:if="${iterateStat.index<list.size()-1}"onclick="nextQuestion()">Next</button>
+		<button  onclick="prev()">Previous</button>
+		<button  onclick="next()">Next</button>
 
 		<button type="submit">SUBMIT</button>
 	</div>
@@ -27,7 +27,7 @@
             var count=0;
             const total=document.querySelectorAll('.question').length;
             
-            function nextQuestion()
+            function next()
             {
             	if(count<total-1)
             	{
@@ -37,7 +37,7 @@
                 }
             }
             
-            function prevQuestion()
+            function prev()
             {
             	if(count>0)
             		{
