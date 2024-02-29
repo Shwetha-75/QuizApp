@@ -72,9 +72,12 @@
 			    var option2Element=document.getElementById("option2");
 			    var option3Element=document.getElementById("option3");
 			    var option4Element=document.getElementById("option4");
-			    
-			    
-				    
+
+			    questionElement.innerTxt=data[index].question;
+			    option1Element.innerText=data[index].option1;
+			    option2Element.innerText=data[index].option2;
+			    option3Element.innerText=data[index].option3;
+			    option4Element.innerText=data[index].option4;
 		    }
             
             function next()
