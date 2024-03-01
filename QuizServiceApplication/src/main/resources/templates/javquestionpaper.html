@@ -114,27 +114,28 @@
 		         }
 		    	 selectedOption=null;
 		  }
-            function next()
-            {
-            	if(index<data.length-1)
-            	{
-			index++;
-			update();
-            		
-                }
-            }
-            
-            function prev()
-            {
-		    if(index>0)
-		    {
-			    
-			    index--;
-			    update();
-		    }
-		    
-            	
-            }
+            function previous()
+		     {
+		    	 if(index>0){
+		    		 index--;
+		    		 updateData();
+		    		 resetButtons();
+		    		 validateOptions();
+		    	 }
+		     }
+		     function next()
+		     {
+		    	 if(index<data.length-1)
+		    		 {
+		    		     index++;
+		    		     updateData();
+		    		     resetButtons();
+		    		     validateOptions();
+		    		 }
+		     }
+		     
+	      updateData();
+    </script>
      </script>
 
 </body>
