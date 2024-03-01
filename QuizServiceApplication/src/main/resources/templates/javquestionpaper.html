@@ -79,7 +79,32 @@
 			    option3Element.innerText=data[index].option3;
 			    option4Element.innerText=data[index].option4;
 		    }
-            
+            function validateOptions()
+	      {
+	    	   var selectedOption=null;
+		      
+	 		   var radioButtons=document.getElementsByName('option');
+	 		      
+	 		      
+	 		      
+	 		   for(var i=0;i<radioButtons.length;i++)
+	 		   {
+	 		    	  
+	 			   if(radioButtons[i].checked)
+	 		       {
+	 		    		selectedOption= radioButtons[i].value;
+	 		    		     
+	 		       }
+	 		    	 
+	 		   }
+	 		   
+	 		   if(selectedValue===null)
+	 		   {
+	 			   alert("Please select a option")  
+	 			   return false;
+	 		   }
+	      }
+	      
             function next()
             {
             	if(index<data.length-1)
