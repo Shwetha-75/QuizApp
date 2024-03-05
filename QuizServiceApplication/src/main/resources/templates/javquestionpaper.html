@@ -28,7 +28,7 @@
 	</form>
 
 	<script th:line="javascript">
-           
+           //binding the data from the controller as its own structure
             fetch("/jav-map").then(response=>response.json()).then(data=>(console.log(data)).catch(error=>console.log('Error',error))
 	    function update()
 		    {
