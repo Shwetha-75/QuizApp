@@ -29,7 +29,7 @@
 
 	<script th:line="javascript">
            
-
+            fetch("/jav-map").then(response=>response.json()).then(data=>(console.log(data)).catch(error=>console.log('Error',error))
 	    function update()
 		    {
 			    var questionElement=document.getElementById("question");
