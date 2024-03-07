@@ -31,6 +31,7 @@
 	   var result=[]; 
            //binding the data from the controller as its own structure
             fetch("/jav-map").then(response=>response.json()).then(data=>
+		    result=data;
 		    ).catch(error=>console.log('Error',error))
 	    function update()
 		    {
