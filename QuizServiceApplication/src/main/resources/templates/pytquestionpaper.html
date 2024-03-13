@@ -120,54 +120,54 @@ button:hover {
 }
 </style>
 
-<script th:inline="javascript">
-var index=0;
-var result=[];
-fetch('/pyt-paper').then(response=>response.json()).then(data=>{
-	result=data;
+ <script th:inline="javascript">
+   var index=0;
+   var result=[];
+   fetch('/pyt-paper').then(response=>response.json()).then(data=>{
+	   
+    result=data;
+    
+   }).catch(error=> console.log('Error',error));
+   
 
-}).catch(error=> console.log('Error',error));
-
-//
-
-function updateQuestion()
-{
-	var questionElement=document.getElementById('question');
-	var option1Element=document.getElementById('option1');
-	var option2Element=document.getElementById('option2');
-	var option3Element=document.getElementById('option3');
-	var option4Element=document.getElementById('option4');
+   function updateQuestion()
+   {
+	   var questionElement=document.getElementById('question');
+	   var option1Element=document.getElementById('option1');
+	   var option2Element=document.getElementById('option2');
+	   var option3Element=document.getElementById('option3');
+	   var option4Element=document.getElementById('option4');
 	
-	questionElement.innerText=result[index-1].question;
-	option1Element.innerText=result[index-1].option1;
-	option2Element.innerText=result[index-1].option2;
-	option3Element.innerText=result[index-1].option3;
-	option4Element.innerText=result[index-1].option4;
-}
+	   questionElement.innerText=result[index-1].question;
+	   option1Element.innerText=result[index-1].option1;
+	   option2Element.innerText=result[index-1].option2;
+   	   option3Element.innerText=result[index-1].option3;
+	   option4Element.innerText=result[index-1].option4;
+   }
 
-function previous()
-{
-	if(index>0)
+   function previous()
+   {
+	    if(index>0)
 		{
 		   index--;
 		   updateQuestion();
 		}
 	
-}
+   }
 
 
-function next()
-{
-	if(index<=result.length-1)
+   function next()
+   {
+	   if(index<=result.length-1)
 		{
 		   index++;
 		   updateQuestion();
 		}
 	
-}
+   }
 
-updateQuestion();
-</script>
+   updateQuestion();
+   </script>
 
 <body>
 	<div class="profile-card">
