@@ -17,7 +17,7 @@ public class PythonController
 	PythonQuestionService pytService;
 	
 	
-	@GetMapping("/pyt-paper")
+	@GetMapping("/pyt-map")
 	public List<Questionpython> fetchAll()
 	{
 		
