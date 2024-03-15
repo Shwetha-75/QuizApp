@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.quiz.mvcproject.entities.Questionpython;
 import com.quiz.mvcproject.services.PythonQuestionService;
 
-@Controller
+@RestController
 public class PythonController 
 {
 	@Autowired
