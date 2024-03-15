@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.quiz.mvcproject.entities.Questionsql;
 import com.quiz.mvcproject.services.SQLQuestionService;
 
-@Controller
+@RestController
 public class SQLController 
 {
 	@Autowired
