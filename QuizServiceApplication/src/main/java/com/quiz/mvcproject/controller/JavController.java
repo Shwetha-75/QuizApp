@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.quiz.mvcproject.entities.Questionjava;
 import com.quiz.mvcproject.services.JavaQuestionService;
 
+
+/*Make sure that it has to be rest controller */
 @RestController
 public class JavController 
 {
