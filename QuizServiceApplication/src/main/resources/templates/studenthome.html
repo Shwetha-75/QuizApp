@@ -2,25 +2,104 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<title> Home </title>
+<style>
+
+        body 
+        {
+        
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+        
+        
+       .div-tag
+        {
+            display:flex;
+            padding:20px;
+            background-color: black;
+            
+        }
+        .div-tag>h1
+        {
+           color:white;
+        }
+        
+        
+        .map-tag
+        
+        {
+           background-color: color;
+           border-radius: 5px;
+           padding: 70px;
+           box-shadow: 0 0 20px black;
+           max-width: 400px;
+           margin:0 auto;
+           
+        }
+        
+        .h1-tag 
+        {
+            margin-right:3%;
+        }
+        
+    </style>
 </head>
 <body>
-  <div class="div-tag" th:object="${detail}">
-      <h1 class="h1-tag">Hello</h1><h1 th:text=${detail.fname}></h1>
-     
-  </div>
-  <div>
-    <div class="map-tag">
-      <nav>
-        <ul>
-          <li><a href="/map-javpapaper">JAVA</a></li>
-          <li><a href="/map-pytpaper">PYTHON</a></li>
-	  <li><a href="/map-sqlpaper">SQL</a></li>
-	  <li><a href="/profile">PROFILE</a></li>
-          <li><a href="/map-studentlogin">LOGOUT</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  </body>
+
+<div class="div-tag" th:object="${detail}">
+	<h1 class="h1-tag">HELLO </h1> <h1 th:text=${detail.fname}></h1>
+</div>
+	<div class="map-tag">
+		<nav>
+			<ul>
+				<li><a href="/map-javpaper">JAVA</a></li>
+			    <li><a href="/map-pytpaper">PYTHON</a></li>
+				<li><a href="/map-sqlpaper">SQL</a></li>
+				<li><a href="/profile">PROFILE</a></li>
+				<li><a href="/map-studentlogin">LOGOUT</a></li>
+				</ul>
+		</nav>
+	</div>
+
+</body>
 </html>
