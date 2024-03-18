@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.quiz.mvcproject.entities.Questionpython;
 import com.quiz.mvcproject.services.PythonQuestionService;
 
+
+/*Make sure that it has to be rest controller */
 @RestController
 public class PythonController 
 {
