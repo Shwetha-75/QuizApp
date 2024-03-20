@@ -2,75 +2,296 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Java Quiz!!</title>
 <style>
 
 
+* 
+{
+
+  box-sizing: border-box;
+
+}
+
+body
+{
+
+  background-color: #f1f1f1;
+
+}
+ .profile-card .label 
+ {
+            font-weight: bold;
+            color: #666;
+            margin-right: 10px;  
+ } 
+        
+ .profile-card 
+        {
+            margin-top:150px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding:  50px 20px;
+           
+        }
+
+        .profile-card h2 
+        {
+        
+            color: #333;
+            margin-top: 0;
+        }
+
+
+        .profile-card p 
+        {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        
+        .profile-card .data 
+        {
+            flex-grow: 1;
+        }
+
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: Raleway;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+h1 {
+  text-align: center;  
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid 
+{
+
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button 
+{
+
+  margin-top: 25px;
+  
+  border-radius:6px;
+  background-color: #04AA6D;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#nextBtn
+{
+    float:right;
+    
+}
+
+#prevBtn 
+{
+  margin-left:20px;
+  background-color:gray;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step 
+{
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #04AA6D;
+}
+
+.nav-tag
+{
+   padding:20px;
+   background-color: black;
+   
+}
+
+h1
+{
+   color:white;
+   text-align:right;
+   
+}
 </style>
-</head>
-<body>
 
-	<form class="question" action="" th:with="data=data">
-		<!--  <h4 th:text=${iterateStat.index}>Indexing</h4>-->
 
-	<div id="container">
-		<h3><span id="question"></span></h3>
-		<input type="radio" name="option" id="option1"/><span id="option1"></span><label for="option1"></label><br>
-		<input type="radio" name="option" id="option2"/><span id="option2"></span><label for="option2"></label><br>
-		<input type="radio" name="option" id="option3"/><span id="option3"></span><label for="option3"></label><br>
-		<input type="radio" name="option" id="option4"/><span id="option4"></span><label for="option4"></label><br>
-	</div>	
-		<button id="prevbtn" onclick="prev()">Previous</button>
-		<button  id="nextbtn" onclick="next()">Next</button>
-
-		<!--<button type="submit">SUBMIT</button>-->
-	
-	</form>
-
-	<script th:line="javascript">
-	   var index=0;
-	   var result=[]; 
-           //binding the data from the controller as its own structure
-            fetch("/jav-map").then(response=>response.json()).then(data=>
-		    result=data;
-		    ).catch(error=>console.log('Error',error))
-	    function update()
-		    {
-			    var questionElement=document.getElementById("question");
-			    var option1Element=document.getElementById("option1");
-			    var option2Element=document.getElementById("option2");
-			    var option3Element=document.getElementById("option3");
-			    var option4Element=document.getElementById("option4");
-
-			    questionElement.innerTxt=data[index].question;
-			    option1Element.innerText=data[index].option1;
-			    option2Element.innerText=data[index].option2;
-			    option3Element.innerText=data[index].option3;
-			    option4Element.innerText=data[index].option4;
-		    }
-            function validateOptions()
+ <script th:inline="javascript">
+          
+ 
+ 
+	      //Testing the hard coded values 
+	      //getting the model from the controller
+	      //var data=JSON.parse(`[[${list}]]`);
+	      //console.log(data); 
+	      //var index=0;
+	      //var list1=[1,2,3,4];
+	      //var data=`[[${list}]]`;
+	     
+	      //console.log(data)
+	          //  var data=[{id:1,
+	          //	    question:"Java is____",
+	          //        option1:"A. OOP",
+	          //	    option2:"B. Secure Language",
+	          //	    option3:"C. It Follows WORA principle",
+	          // 	    option4:"D. All Above",
+	          // 	    questionNo:"Question1",
+	          // 	    correctOption:"D. All Above"},
+	          //        {id:2,
+	    	  //             question:"1. What is the correct way to instance an array in Java?",
+	    	  //             option1:"A. int array;",
+	    	  //             option2:"B. int array[];",
+	    	  //             option3:"C. array[];",
+	    	  //             option4:"D. int array[]=new int[size];",
+	    	  //             questionNo:"Question 2",
+	    	  //             correctOption:"D. int array[]=new int[size];"},
+	    	  //         {id:4,
+	    	  //              question:"What is the default values for instance variables?",
+	    	  //              option1:"A. 0",
+	    	  //              option2:"B.Null",
+	    	  //              option3:"C. None",
+	    	  //              option4:"D. Depends on the Data type",
+	    	  //              questionNo:"Question 4",
+	    	  //              correctOption:"D. Depends on the Data type"},
+	    	  //         {id:5,
+	    	  //              question:"Which data structure in Java uses a Last-In-First-Out (LIFO) approach?",
+	    	  //              option1:"A. Queue",
+	    	  //              option2:"B. Linked List",
+	    	  //              option3:"C. Stack",
+	    	  //              option4:"D. HashSet",
+	     //              questionNo:"Question 5",
+	     //              correctOption:"C. Stack"}
+	     //            ]
+	     //var data=JSON.stringify([list]);
+	     //console.log(data[index].id);
+	     
+	     //var result=JSON.parse(data)
+	     var index=0;
+	 
+	     var result=[];
+	     //show(index);
+	     
+	     function show(ind)
+	     {
+	     	 var mapping=document.getElementById("container");
+	     	 mapping[ind].style.display="block";
+	    	 
+	     	 if(ind===0)
+	         {
+	     		document.getElementById("prevBtn").style.display="none";
+	     		    
+	         }else 
+	     	   {
+	     			document.getElementById("nextBtn").style.display="block";
+	     	   }
+	     	 if(ind===(mapping.length-1))
+	     		 {
+	     		    document.getElementById("nextBtn").innerHTML="Submit";
+	     		 }
+	     	 else 
+	     		 {
+	              document.getElementById("nextBtn").innerHTML="Next";
+	     		 }
+	     }
+	     		
+	     fetch('/jav-map').then(response=>response.json()).then(data=>{
+	     	    result=data;
+	     	    
+	     }).catch(error=> console.log('Error',error));
+	    	
+	   
+	     //console.log(count); 
+	     //function resetButtons()
+	     //{
+	     // var radioButton=document.getElementsByName('option');
+	     //radioButton.forEach(function(radioButton){
+	     //radioButton.checked=false;
+	     //});
+	     //}
+	    
+	     function updateData()
+	     {
+	    	  
+	    	 var questionElement=document.getElementById('question');
+	    	 var option1Element=document.getElementById('option1');
+	    	 var option2Element=document.getElementById('option2');
+	    	 var option3Element=document.getElementById('option3');
+	    	 var option4Element=document.getElementById('option4');
+	    	 
+	    	 questionElement.innerText=result[index-1].question;
+	    	 option1Element.innerText=result[index-1].option1;
+	    	 option2Element.innerText=result[index-1].option2;
+	    	 option3Element.innerText=result[index-1].option3;
+	    	 option4Element.innerText=result[index-1].option4; 
+ 		 }
+	      
+	      
+	      
+	      function validateOptions()
 	      {
-	    	           var selectedOption=null;
-	 		   var radioButtons=document.getElementsByName('option');     
+	    	   var selectedOption=null;
+	 		   var radioButtons=document.getElementsByName('option');
 	 		   for(var i=0;i<radioButtons.length;i++)
-	 		   {
-	 		    	  
-	 			if(radioButtons[i].checked)
+	 		   {   
+	 			   if(radioButtons[i].checked)
 	 		       {
-	 		    		selectedOption= radioButtons[i].value;
-	 		    		     
-	 		       }
-	 		    	 
-	 		   }
-	 		   
+	 		    		selectedOption= radioButtons[i].value;     
+	 		       }	 
+	 		   } 
 	 		   if(selectedValue===null)
 	 		   {
 	 			   alert("Please select a option")  
 	 			   return false;
 	 		   }
 	      }
-
-		function resetButtons()
+	      
+	      
+	      
+	      
+	      function resetButtons()
 		  {
 		    	 var radioBtn=document.getElementsByName('option');
 		    	 for(var i=0;i<radioBtn.length;i++)
@@ -79,30 +300,59 @@
 		         }
 		    	 selectedOption=null;
 		  }
-            function previous()
-		     {
-		    	 if(index>0)
-			 {
-		            index--;
-		    	    updateData();
-		            resetButtons();
-		            validateOptions();
+	      
+	      
+	      function previous()
+		  {
+		    	 if(index>0){
+		    		 index--;
+		    		 updateData();
+		    		 resetButtons();
+		    		 validateOptions();
 		    	 }
-		     }
-		     function next()
-		     {
-		    	 if(index<data.length-1)
-		    	 {
-		    		index++;
-		    		updateData();
-		    		resetButtons();
-		    		validateOptions();
-		    	}
-		     }
+		    	 //show(index);
+		  }
+		  function next()
+		  {
+		    	 if(index<=result.length-1)
+		    		 {
+		    		     index++;
+		    		     updateData();
+		    		     resetButtons();
+		    		     validateOptions();
+		    		 }
+		    	 //show(index);
+		  }
 		     
 	      updateData();
-    </script>
-     </script>
+	      
+ </script>
+ 
 
+</head>
+<body>
+<nav class="nav-tag">
+
+<h1>HELLO</h1>
+</nav>
+     <div class="profile-card">
+    
+	 <form class="question" action="" th:with="result=result">
+		
+		<div id="container">
+	
+		<h3 ><span id="question"></span></h3>
+		<input type="radio" name="option"  /><span id="option1"></span><label for="option1"></label><br>
+		<input type="radio" name="option"  /><span id="option2"></span><label for="option2"></label><br>
+		<input type="radio" name="option"  /><span id="option3"></span><label for="option3"></label><br>
+		<input type="radio" name="option"  /><span id="option4"></span><label for="option4"></label><br>
+		
+		</div>
+		<button type="button" id="prevBtn" onclick="previous()">Previous</button>
+		<button type="button" id="nextBtn" onclick="next()">Next</button>	
+		<button type="submit" id="submit-Btn">Submit</button>
+	</form>
+	</div>
+	 
 </body>
 </html>
