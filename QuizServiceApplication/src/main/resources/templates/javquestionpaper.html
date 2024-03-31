@@ -78,14 +78,13 @@ input {
   border: 1px solid #aaaaaa;
 }
 
-/* Mark input boxes that gets an error on validation: */
 input.invalid 
 {
 
   background-color: #ffdddd;
 }
 
-/* Hide all steps by default: */
+
 .tab {
   display: none;
 }
@@ -105,8 +104,11 @@ button
   cursor: pointer;
 }
 
-button:hover {
+.next-submit:hover 
+{
+   background-color: green;
   opacity: 0.8;
+  
 }
 
 #nextBtn
@@ -121,27 +123,13 @@ button:hover {
   background-color:gray;
 }
 
-/* Make circles that indicate the steps of the form: */
-.step 
+
+#prevBtn:hover
 {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbbbbb;
-  border: none;  
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
+  background-color:black;
+  
 }
 
-.step.active {
-  opacity: 1;
-}
-
-/* Mark the steps that are finished and valid: */
-.step.finish {
-  background-color: #04AA6D;
-}
 
 .nav-tag
 {
@@ -154,6 +142,14 @@ h1
 {
    color:white;
    text-align:right;
+   
+}
+
+#submit-Btn
+{
+   margin-right:2px;
+   float:right;
+
    
 }
 </style>
@@ -170,7 +166,6 @@ h1
 	      //var index=0;
 	      //var list1=[1,2,3,4];
 	      //var data=`[[${list}]]`;
-	     
 	      //console.log(data)
 	          //  var data=[{id:1,
 	          //	    question:"Java is____",
@@ -212,7 +207,7 @@ h1
 	     var index=0;
 	 
 	     var result=[];
-	     //show(index);
+	     
 	     
 	     function show(ind)
 	     {
@@ -224,8 +219,10 @@ h1
 	     		document.getElementById("prevBtn").style.display="none";
 	     		    
 	         }else 
-	     	   {
+	           {
+	        	 
 	     			document.getElementById("nextBtn").style.display="block";
+	     			
 	     	   }
 	     	 if(ind===(mapping.length-1))
 	     		 {
@@ -251,7 +248,7 @@ h1
 	     //radioButton.checked=false;
 	     //});
 	     //}
-	    
+	      
 	     function updateData()
 	     {
 	    	  
@@ -310,7 +307,7 @@ h1
 		    		 resetButtons();
 		    		 validateOptions();
 		    	 }
-		    	 //show(index);
+		    	 
 		  }
 		  function next()
 		  {
@@ -320,20 +317,25 @@ h1
 		    		     updateData();
 		    		     resetButtons();
 		    		     validateOptions();
-		    		 
-				 }
-			  if(index==result.length)
-			  {
-				  var element=document.getElementById("submit-Btn");
-				  element.style.display="block";
-				  var element2=document.getElementById("nextBtn");
-				  element2.style.display="none";
-			  }
+		    		 }
+		    	 
+		    	 if (index==result.length)
+		    	  {
+		    		 var element=document.getElementById("submit-Btn");
+		    	     element.style.display="block";
+		    	     var element2=document.getElementById("nextBtn");
+		    	     element2.style.display="none";
+		    	     
+		    	  }
+		    	 
+		    	 
+		    	
 		    	 //show(index);
 		  }
 		     
 	      updateData();
-	      
+	      show(index);
+	     
  </script>
  
 
@@ -345,20 +347,20 @@ h1
 </nav>
      <div class="profile-card">
     
-	 <form class="question" action="" th:with="result=result">
+	 <form class="question" action="/map-form" th:with="result=result" method="POST">
 		
 		<div id="container">
 	
-		<h3 ><span id="question"></span></h3>
-		<input type="radio" name="option"  /><span id="option1"></span><label for="option1"></label><br>
-		<input type="radio" name="option"  /><span id="option2"></span><label for="option2"></label><br>
-		<input type="radio" name="option"  /><span id="option3"></span><label for="option3"></label><br>
-		<input type="radio" name="option"  /><span id="option4"></span><label for="option4"></label><br>
+		<h3><span id="question"></span></h3>
+		<input type="radio" name="option"  /> <span id="option1"></span><label for="option1"></label><br>
+		<input type="radio" name="option"  /> <span id="option2"></span><label for="option2"></label><br>
+		<input type="radio" name="option"  /> <span id="option3"></span><label for="option3"></label><br>
+		<input type="radio" name="option"  /> <span id="option4"></span><label for="option4"></label><br>
 		
 		</div>
-		<button type="button" id="prevBtn" onclick="previous()">Previous</button>
-		<button type="button" id="nextBtn" onclick="next()">Next</button>	
-		<button type="submit" id="submit-Btn" style="display:none">Submit</button>
+		<button class="prev-submit" type="button" id="prevBtn" onclick="previous()">Previous</button>
+		<button class="next-submit" type="button" id="nextBtn" onclick="next()">Next</button>	
+		<button class="next-submit" type="submit" id="submit-Btn" style="display:none">Submit</button>
 	</form>
 	</div>
 	 
