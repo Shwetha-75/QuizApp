@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SQL Paper</title>
+<title>Python Quiz!!</title>
 </head>
 <style>
 * {
@@ -146,80 +146,90 @@ h1
 }
 </style>
 
-<script th:inline="javascript">
-	var index = 0;
-	var result = [];
-	
-	fetch('/sql-map').then(response=>response.json()).then(data=>{
-		result=data;
-		console.log(result);
-		}).catch(error=>console.log('Error',error));
-	
-	function updateData()
-	{
-		var questionElement=document.getElementById('question');
-		var option1Element=document.getElementById('option1');
-		var option2Element=document.getElementById('option2');
-		var option3Element=document.getElementById('option3');
-		var option4Element=document.getElementById('option4');
-		
-		questionElement.innerText=result[index-1].question
-		option1Element.innerText=result[index-1].option1;
-		option2Element.innerText=result[index-1].option2;
-		option3Element.innerText=result[index-1].option3;
-		option4Element.innerText=result[index-1].option4;
-		
-		
-	}
-	
-	function next()
-	{
-		if(index<=result.length-1)
-			{
-			   index++;
-			   updateData();
-			   
-			}
-		if(index==result.length)
-		{
-			var element=document.getElementById("sub-btn");
-			element.style.display="block";
-			var element2=document.getElementById("nextBtn");
-			element2.style.display="none";
-		}
-	}
-	
-	function previous()
-	{
-		if(index>0)
-			{
-			   index--;
-			   updateData();
-			}
-		
-	}
-	
-	updateData();
-</script>
-<body>
+ <script th:inline="javascript">
+   var index=0;
+   var result=[];
+   //var array=`[[${list}]]`;
+   //console.log(array[0]);
+   
+    fetch('/sql-map').then(response=>response.json()).then(data=>{
+	    	    result=data;
+	    	    console.log(result);
+	    	    
+	 }).catch(error=> console.log('Error',error));
 
-<div class="profile-card">
-	<form class='question' action="" th:with="result=result">
-	<div id="container">
+   function updateQuestion()
+   {
+	   var questionElement=document.getElementById('question');
+	   var option1Element=document.getElementById('option1');
+	   var option2Element=document.getElementById('option2');
+	   var option3Element=document.getElementById('option3');
+	   var option4Element=document.getElementById('option4');
 	
-		<h3 ><span id="question"></span></h3>
-		<input type="radio" name="option"  /><span id="option1"></span><label for="option1"></label><br>
-		<input type="radio" name="option"  /><span id="option2"></span><label for="option2"></label><br>
-		<input type="radio" name="option"  /><span id="option3"></span><label for="option3"></label><br>
-		<input type="radio" name="option"  /><span id="option4"></span><label for="option4"></label><br>
-		
-		</div>
-		<div class="btn-tags">
-		<button type="button" id="prevBtn" onclick="previous()">Previous</button>
-		<button type="button" id="nextBtn" onclick="next()">Next</button>
-		<button type="submit" id="sub-btn" style="display:none">Submit</button>
-		</div>
-	</form>
-</div>
+	   questionElement.innerText=result[index-1].question;
+	   option1Element.innerText=result[index-1].option1;
+	   option2Element.innerText=result[index-1].option2;
+   	   option3Element.innerText=result[index-1].option3;
+	   option4Element.innerText=result[index-1].option4;
+   }
+
+   function previous()
+   {
+	   
+	    if(index>0)
+		{
+		   index--;
+		   updateQuestion();
+		}
+	
+   }
+
+
+   function next()
+   {
+	   if(index<=result.length-1)
+		{
+		   index++;
+		   updateQuestion();
+		}
+	   if(index==result.length)
+		   {
+		      var element=document.getElementById("sub-btn");
+		      element.style.display="block";
+		      var element2=document.getElementById("nextBtn");
+		      element2.style.display="none";
+		      
+		   }
+	
+   }
+
+   updateQuestion();
+   </script>
+
+<body>
+<nav class="nav-tag">
+<h1 class="user-name">HELLO</h1>
+</nav>
+
+	<div class="profile-card">
+		<form class="question" th:with="result=result">
+			<div id="container">
+				<h3>
+					<span id="question"></span>
+				</h3>
+				<input type="radio" name="option" /> <span id="option1"></span><label for="option1"></label><br> 
+				<input type="radio" name="option" /> <span id="option2"></span><label for="option2"></label><br>
+				<input type="radio" name="option" /> <span id="option3"></span><label for="option3"></label><br> 
+				<input type="radio" name="option" /> <span id="option4"></span><label for="option4"></label><br>
+			</div>
+			<div class="btn">
+			<button type="button"  id="prevBtn" onclick="previous()">Previous</button>
+			<button type="submit" id="sub-btn" style="display:none">Submit</button>
+			<button type="button" id="nextBtn" onclick="next()">Next</button>
+			</div>
+
+		</form>
+	</div>
+
 </body>
 </html>
