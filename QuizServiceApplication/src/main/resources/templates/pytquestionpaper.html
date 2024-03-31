@@ -118,22 +118,45 @@ button:hover {
 .step.finish {
 	background-color: #04AA6D;
 }
-.btn-tags
+
+.nav-tag
 {
-	display:inline;
-	
+    padding:20px;
+    background-color:black;
+    
+}
+
+h1
+{
+   color:white;
+   text-align:right;
+   
+}
+
+.button-tags
+{
+
+   display:inline;
+}
+
+#sub-btn
+{
+   float:right;
+   margin-right:5px;
 }
 </style>
 
- <script th:inline="javascript">
+<script th:inline="javascript">
    var index=0;
    var result=[];
-   fetch('/pyt-map').then(response=>response.json()).then(data=>{
-	   
-    result=data;
-    
-   }).catch(error=> console.log('Error',error));
+   //var array=`[[${list}]]`;
+   //console.log(array[0]);
    
+    fetch('/pyt-map').then(response=>response.json()).then(data=>{
+	    	    result=data;
+	    	    console.log(result);
+	    	    
+	 }).catch(error=> console.log('Error',error));
 
    function updateQuestion()
    {
@@ -152,6 +175,7 @@ button:hover {
 
    function previous()
    {
+	   
 	    if(index>0)
 		{
 		   index--;
@@ -168,6 +192,13 @@ button:hover {
 		   index++;
 		   updateQuestion();
 		}
+	    if(index==result.length)
+	    {
+	    	var element=document.getElementById("sub-btn");
+	    	element.style.display="block";
+	    	var element2=document.getElementById("nextBtn");
+	    	element2.style.display="none";
+	    }
 	
    }
 
@@ -175,22 +206,28 @@ button:hover {
    </script>
 
 <body>
+	<nav class="nav-tag">
+		<h1>HELLO</h1>
+	</nav>
 	<div class="profile-card">
 		<form class="question" th:with="result=result">
 			<div id="container">
 				<h3>
 					<span id="question"></span>
 				</h3>
-				<input type="radio" name="option" /> <span id="option1"></span><label for="option1"></label><br> 
-				<input type="radio" name="option" /> <span id="option2"></span><label for="option2"></label><br>
-				<input type="radio" name="option" /> <span id="option3"></span><label for="option3"></label><br> 
-				<input type="radio" name="option" /> <span id="option4"></span><label for="option4"></label><br>
+				<input type="radio" name="option" /> <span id="option1"></span><label
+					for="option1"></label><br> <input type="radio" name="option" />
+				<span id="option2"></span><label for="option2"></label><br> <input
+					type="radio" name="option" /> <span id="option3"></span><label
+					for="option3"></label><br> <input type="radio" name="option" />
+				<span id="option4"></span><label for="option4"></label><br>
 			</div>
-			<div class="btn-tags">
-			<button type="button"  id="prevBtn" onclick="previous()">Previous</button>
+			<div class="button-tags">
+			<button type="button" id="prevBtn" onclick="previous()">Previous</button>
 			<button type="button" id="nextBtn" onclick="next()">Next</button>
 			<button type="submit" id="sub-btn" style="display:none">Submit</button>
-                        </div>
+			</div>
+
 		</form>
 	</div>
 
