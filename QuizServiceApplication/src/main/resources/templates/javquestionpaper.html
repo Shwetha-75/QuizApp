@@ -334,6 +334,23 @@ h1
 		  
 		  }
 
+	      function getElement()
+	      {
+		      var selected=null;
+		      var radioButtons=document.getElementsByName('option');
+		      for(let i=0;i<radioButtons.length;i++)
+		      {
+
+				      if(radioButtons[i].checked)
+				      {
+					      selected=radioButtons[i];
+				      }
+		      }
+		      
+		      
+			      
+	      }
+
 	      var selectedOptionValue=[];
 	      function updateSelectedOption(option)
 		      {
