@@ -263,7 +263,7 @@ h1
 	    	 option2Element.innerText=result[index-1].option2;
 	    	 option3Element.innerText=result[index-1].option3;
 	    	 option4Element.innerText=result[index-1].option4; 
- 		 }
+ 	    }
 	      
 	      
 	      
@@ -295,6 +295,8 @@ h1
 		  }
 		  function next()
 		  {
+			 var selectedOption=getElement();
+			 
 		    	 if(index<=result.length-1)
 		    		 {
 		    		     index++;
@@ -310,9 +312,7 @@ h1
 		    	     var element2=document.getElementById("nextBtn");
 		    	     element2.style.display="none";
 		    	     
-		    	  }
-		    	 
-		    	 
+		    	  } 
 		    	
 		    	 //show(index);
 		  
