@@ -296,7 +296,13 @@ h1
 		  function next()
 		  {
 			 var selectedOption=getElement();
-			 
+			 if(selectedOption=null)
+			 {
+				 alert("Please select an option");
+				 return;
+			 }
+
+			  
 		    	 if(index<=result.length-1)
 		    		 {
 		    		     index++;
@@ -313,10 +319,16 @@ h1
 		    	     element2.style.display="none";
 		    	     
 		    	  } 
+			  
 		    	
 		    	 //show(index);
 		  
 		  }
+	      var selectedOptionValue=[];
+	     function updateValue(option)
+	     {
+			     selectedOptionValue[index-1]=option;
+	      }
 
 	      function getElement()
 	      {
