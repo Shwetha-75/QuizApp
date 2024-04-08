@@ -267,23 +267,7 @@ h1
 	      
 	      
 	      
-	      function validateOptions()
-	      {
-	    	   var selectedOption=null;
-	 		   var radioButtons=document.getElementsByName('option');
-	 		   for(var i=0;i<radioButtons.length;i++)
-	 		   {   
-	 			   if(radioButtons[i].checked)
-	 		       {
-	 		    		selectedOption= radioButtons[i].value;     
-	 		       }	 
-	 		   } 
-	 		   if(selectedValue===null)
-	 		   {
-	 			   alert("Please select a option")  
-	 			   return false;
-	 		   }
-	      }
+	      
 	      
 	      
 	      
@@ -305,7 +289,7 @@ h1
 		    		 index--;
 		    		 updateData();
 		    		 resetButtons();
-		    		 validateOptions();
+		    		 
 		    	 }
 		    	 
 		  }
@@ -316,12 +300,12 @@ h1
 		    		     index++;
 		    		     updateData();
 		    		     resetButtons();
-		    		     validateOptions();
+		    		    
 		    		 }
 		    	 
 		    	 if (index==result.length)
 		    	  {
-		    		 var element=document.getElementById("submit-Btn");
+		    	     var element=document.getElementById("submit-Btn");
 		    	     element.style.display="block";
 		    	     var element2=document.getElementById("nextBtn");
 		    	     element2.style.display="none";
