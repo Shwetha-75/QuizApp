@@ -187,7 +187,9 @@ h1
 
    function next()
    {
-	   if(index<=result.length-1)
+	   var selectedOption=getSelectedOption();
+	   
+		if(index<=result.length-1)
 		{
 		   index++;
 		   updateQuestion();
