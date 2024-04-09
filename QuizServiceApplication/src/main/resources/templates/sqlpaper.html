@@ -187,6 +187,8 @@ h1
 
    function next()
    {
+	   var selectedOption=getSelectedOption();
+	   
 	   if(index<=result.length-1)
 		{
 		   index++;
@@ -202,7 +204,11 @@ h1
 		   }
 	
    }
-
+   function getSelectedOption()
+   {
+	var radioButtons=document.getElementsByName();
+	
+   }
    updateQuestion();
    </script>
 
