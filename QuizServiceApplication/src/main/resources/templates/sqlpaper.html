@@ -188,7 +188,11 @@ h1
    function next()
    {
 	   var selectedOption=getSelectedOption();
-	   
+	   if(selectedOption===null)
+	   {
+		   alert("Please select the option");
+		   return;
+	   }
 	   if(index<=result.length-1)
 		{
 		   index++;
