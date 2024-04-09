@@ -204,6 +204,21 @@ h1
 	
    }
 
+	function getSelectedOption()
+       {
+	   var select=null;
+	   var radioButtons=document.getElementsByName('option');
+	  for(let i=0;i<radioButtons.length;i++)
+          {
+	      if(radioButtons[i].checked)
+	      {
+		      select=radioButtons[i].value;
+	      }
+	   }
+
+	      
+       }
+
    updateQuestion();
    </script>
 
