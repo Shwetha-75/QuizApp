@@ -188,13 +188,18 @@ h1
    function next()
    {
 	   var selectedOption=getSelectedOption();
-	   
+	   if(selectedOption===null)
+	   {
+		   alert("Please select the option");
+		   return;
+	   }
+	   updateOption(selectedOption);
 		if(index<=result.length-1)
 		{
 		   index++;
 		   updateQuestion();
 		}
-	    if(index==result.length)
+	    if(index===result.length)
 	    {
 	    	var element=document.getElementById("sub-btn");
 	    	element.style.display="block";
@@ -214,11 +219,13 @@ h1
 	      {
 		      select=radioButtons[i].value;
 	      }
-	   }
-
-	      
+	   }  
        }
-
+   var selectedOptionValue=[];
+   function updateOption(option)
+   {
+	selectedOptionValue[index-1]=option;   
+   }
    updateQuestion();
    </script>
 
@@ -240,7 +247,7 @@ h1
 			<div class="button-tags">
 			<button type="button" id="prevBtn" onclick="previous()">Previous</button>
 			<button type="button" id="nextBtn" onclick="next()">Next</button>
-			<button type="submit" id="sub-btn" style="display:none">Submit</button>
+			<button type="button" id="sub-btn" style="display:none" onclick="display()">Submit</button>
 			</div>
 
 		</form>
