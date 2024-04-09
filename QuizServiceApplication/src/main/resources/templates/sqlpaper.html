@@ -193,6 +193,8 @@ h1
 		   alert("Please select the option");
 		   return;
 	   }
+	   update(selectedOption);
+	   
 	   if(index<=result.length-1)
 		{
 		   index++;
@@ -212,7 +214,14 @@ h1
    {
 	var radioButtons=document.getElementsByName();
 	var select=null;
-	for(let i=0
+	for(let i=0;i<radioButtons.length;i++)
+		{
+			if(radioButtons[i].checked)
+			{
+				select=radioButtons.value;
+			}
+		}
+	   return select;
 	
    }
    updateQuestion();
