@@ -230,6 +230,20 @@ h1
 		  selectedOptionValue[index-1]=option; 
 	   }
    updateQuestion();
+   function display()
+		       {
+			       var count=0;
+			       var j=1;
+			       for(let i=0;i<result.length;i++)
+				       {
+					       if(selectedOptionValue[j]==result[i].id)
+					       {
+						       count++;
+					       }
+					       j++;
+				       }
+			       
+		       }
    </script>
 
 <body>
