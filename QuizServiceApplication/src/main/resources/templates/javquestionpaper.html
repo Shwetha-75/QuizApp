@@ -353,13 +353,17 @@ h1
 			       var count=0;
 			       var j=1;
 			       for(let i=0;i<result.length;i++)
-				       {
+				{
 					       if(selectedOptionValue[j]===result[i].id)
 					       {
 						       count++;
 					       }
 					       j++;
-				       }
+				}
+			       var element=document.getElementById("popup");
+			       element.innerHTML=count;
+			       document.getElementById("popupcontent");
+			       
 			       
 		       }
 		     
