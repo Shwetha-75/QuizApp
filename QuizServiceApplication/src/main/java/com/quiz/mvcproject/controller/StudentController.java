@@ -29,7 +29,7 @@ public class StudentController
 	}
 	
 	@PostMapping("/studentlogin")
-	public String validateLogin(Student student)
+	public String validateLogin(@ModelAttribute Student student)
 	{
 		String msg=studentService.validateLogin(student);
 		if(msg.equals("studenthome"))
